@@ -1,2 +1,6 @@
-# wp-crowd-plugin
-plugin for The WP Crowd
+# WP Crowd Plugin
+For extended Functionality
+
+
+#OOP CODE
+* Talk to Carl
