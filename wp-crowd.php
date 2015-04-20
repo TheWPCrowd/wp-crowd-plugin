@@ -10,4 +10,20 @@
  * License: GPL3
  */
  
+ 
+require 'includes/wp-crowd-cpts.php';
+ 
+class wp_crowd_plugin {
+	
+	function __construct() {
+		$this->__init();
+	}
+	
+	function __init() {
+		/** New Classes, misc. action hooks **/
+		new wp_crowd_cpts();
+	}
+}
+ 
+new wp_crowd_plugin();
  ?>
