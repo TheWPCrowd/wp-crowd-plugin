@@ -12,6 +12,7 @@
  
  
 require 'includes/wp-crowd-cpts.php';
+require 'includes/wp-crowd-metaboxes.php';
  
 class wp_crowd_plugin {
 	
@@ -22,6 +23,7 @@ class wp_crowd_plugin {
 	function __init() {
 		/** New Classes, misc. action hooks **/
 		new wp_crowd_cpts();
+		new wp_crowd_meta();
 	}
 }
  
