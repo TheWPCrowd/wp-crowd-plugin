@@ -4,11 +4,6 @@ require_once __DIR__ .'/metabox_lib/init.php';
 
 class wp_crowd_meta {
 	
-	function __construct() {
-		$this->__init();
-		
-	}
-	
 	function __init() {
 		add_action( 'cmb2_init', array( $this, '__wp_crowd_metaboxes' ) );
 		

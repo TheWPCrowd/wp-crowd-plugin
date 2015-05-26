@@ -22,8 +22,11 @@ class wp_crowd_plugin {
 	
 	function __init() {
 		/** New Classes, misc. action hooks **/
-		new wp_crowd_cpts();
-		new wp_crowd_meta();
+		$wpcrowd_cpts = new wp_crowd_cpts();
+		$wpcrowd_cpts->__init();
+		
+		$wpcrowd_meta = new wp_crowd_meta();
+		$wpcrowd_meta->__init();
 	}
 }
  
