@@ -22,7 +22,7 @@ class wp_crowd_cpts {
 			'new_item'           => __( 'New Podcast', 'thewpcrowd' ),
 			'edit_item'          => __( 'Edit Podcast', 'thewpcrowd' ),
 			'view_item'          => __( 'View Podcast Show', 'thewpcrowd' ),
-			'all_items'          => __( 'Whole Podcast', 'thewpcrowd' ),
+			'all_items'          => __( 'All Podcasts', 'thewpcrowd' ),
 			'search_items'       => __( 'Search Podcast', 'thewpcrowd' ),
 			'parent_item_colon'  => __( 'Parent Podcast:', 'thewpcrowd' ),
 			'not_found'          => __( 'No shows items found.', 'thewpcrowd' ),
@@ -79,12 +79,14 @@ class wp_crowd_cpts {
 			'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' )
 		);
 	
-		register_post_type( 'cast', $args );
+		//register_post_type( 'cast', $args );
 		
 	}
 	
 	function __wp_portfolio_tax() {
 	
+		// TOPICS
+		
 		$labels = array(
 			'name'              => _x( 'Topics', 'taxonomy general name' ),
 			'singular_name'     => _x( 'Topic', 'taxonomy singular name' ),
@@ -109,6 +111,27 @@ class wp_crowd_cpts {
 		);
 	
 		register_taxonomy( 'topics', array( 'podcast' ), $args );
+		
+		// PEOPLE
+		
+		$labels = array(
+			'name'              => _x( 'People', 'taxonomy general name' ),
+			'singular_name'     => _x( 'Person', 'taxonomy singular name' ),
+			'add_new_item'      => __( 'Add New Person' ),
+			'new_item_name'     => __( 'New Topic Person' ),
+			'menu_name'         => __( 'People' ),
+		);
+	
+		$args = array(
+			'hierarchical'      => true,
+			'labels'            => $labels,
+			'show_ui'           => true,
+			'show_admin_column' => true,
+			'query_var'         => true,
+			'rewrite'           => array( 'slug' => 'people' ),
+		);
+	
+		register_taxonomy( 'people', array( 'podcast' ), $args );
 		
 	}
 }	
