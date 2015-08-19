@@ -41,7 +41,7 @@ class wp_crowd_cpts {
 			'has_archive'        => true,
 			'hierarchical'       => false,
 			'menu_position'      => null,
-			'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' )
+			'supports'           => array( 'title', 'editor', 'author', 'excerpt', 'comments', 'thumbnail' )
 		);
 	
 		register_post_type( 'podcast', $args );
@@ -132,6 +132,27 @@ class wp_crowd_cpts {
 		);
 	
 		register_taxonomy( 'people', array( 'podcast' ), $args );
+		
+		// GUESTS
+		
+		$labels = array(
+			'name'              => _x( 'Guests', 'taxonomy general name' ),
+			'singular_name'     => _x( 'Guest', 'taxonomy singular name' ),
+			'add_new_item'      => __( 'Add New Guest' ),
+			'new_item_name'     => __( 'New Topic Guest' ),
+			'menu_name'         => __( 'Guest' ),
+		);
+	
+		$args = array(
+			'hierarchical'      => true,
+			'labels'            => $labels,
+			'show_ui'           => true,
+			'show_admin_column' => true,
+			'query_var'         => true,
+			'rewrite'           => array( 'slug' => 'guest' ),
+		);
+	
+		register_taxonomy( 'guest', array( 'podcast' ), $args );
 		
 	}
 }	

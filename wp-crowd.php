@@ -13,6 +13,7 @@
  
 require 'includes/wp-crowd-cpts.php';
 require 'includes/wp-crowd-metaboxes.php';
+require 'includes/wp-crowd-ppl-widget.php';
  
 class wp_crowd_plugin {
 	
@@ -27,6 +28,10 @@ class wp_crowd_plugin {
 		
 		$wpcrowd_meta = new wp_crowd_meta();
 		$wpcrowd_meta->__init();
+		
+		/** WP Crowd People Widget **/
+		$wpcrowd_ppl_widget = new wp_crowd_ppl_widget_register();
+		$wpcrowd_ppl_widget->__init();
 	}
 }
  

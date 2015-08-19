@@ -8,6 +8,7 @@ class wp_crowd_meta {
 		
 		//add_action('cmb2_init', array( $this,'__wp_crowd_metaboxes' ) );
 		add_action('cmb2_init', array( $this,'__wpcrowd_people_meta' ) );
+		add_action('cmb2_init', array( $this, '__wpcrowd_guest_meta') );
 		
 	}
 	
@@ -96,5 +97,37 @@ class wp_crowd_meta {
 		$cats = new Taxonomy_MetaData_CMB2('people', $metabox_id, __('Person Details','thewpcrowd' ), $wlo_overrides );
 		
 	}
+	
+	function __wpcrowd_guest_meta() {
+		
+		$metabox_id ='wpcrowd_guest';
+
+		 $cmb = new_cmb2_box( array(
+			'id'			=> $metabox_id,
+			'object_types' => array('key' =>'options-page','value' => array('unknown', ), ),
+		 ) );
+		
+		 $cmb->add_field( array(
+			'name' => __('Twitter Handle','thewpcrowd' ),
+			'desc' => __('start with @','thewpcrowd' ),
+			'id'	=>'person_twitter', // no prefix needed since the options are one option array.
+			'type' =>'text',
+		 ) );
+		 
+		 if ( ! defined('wlo_update_option' ) ) {
+			 require_once('wp-large-options.php' );
+		 }
+		 
+		 // wp-large-options overrides
+		 $wlo_overrides = array(
+			'get_option'	 =>'wlo_get_option',
+			'update_option' =>'wlo_update_option',
+			'delete_option' =>'wlo_delete_option',
+		 );
+	
+		$cats = new Taxonomy_MetaData_CMB2('guest', $metabox_id, __('Guest Details','thewpcrowd' ), $wlo_overrides );
+		
+	}
+	
 }
 ?>
