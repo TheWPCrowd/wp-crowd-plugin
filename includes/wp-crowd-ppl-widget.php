@@ -35,7 +35,9 @@
 			echo '<li><h4 class="widgettitle">The Crowd</h4>';
 			echo '<ul>';
 			foreach( $people as $person ) {
-				
+				if( $person->count < 5 ) {
+					continue;
+				}
 				echo '<li><a href="/people/' . $person->slug . '">' . $person->name . '</a></li>';
 				
 			}

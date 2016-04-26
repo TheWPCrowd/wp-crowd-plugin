@@ -41,7 +41,7 @@ class wp_crowd_cpts {
 			'has_archive'        => true,
 			'hierarchical'       => false,
 			'menu_position'      => null,
-			'supports'           => array( 'title', 'editor', 'author', 'excerpt', 'comments', 'thumbnail' )
+			'supports'           => array( 'title', 'editor', 'author', 'excerpt', 'comments', 'thumbnail', 'publicize' )
 		);
 	
 		register_post_type( 'podcast', $args );

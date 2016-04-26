@@ -6,9 +6,12 @@ class wp_crowd_meta {
 	
 	function __init() {
 		
-		//add_action('cmb2_init', array( $this,'__wp_crowd_metaboxes' ) );
-		add_action('cmb2_init', array( $this,'__wpcrowd_people_meta' ) );
-		add_action('cmb2_init', array( $this, '__wpcrowd_guest_meta') );
+		if( class_exists('new_cmb2_box') && class_exists( 'Taxonomy_MetaData_CMB2' ) ) {
+		
+			//add_action('cmb2_init', array( $this,'__wp_crowd_metaboxes' ) );
+			add_action('cmb2_init', array( $this,'__wpcrowd_people_meta' ) );
+			add_action('cmb2_init', array( $this, '__wpcrowd_guest_meta') );
+		}
 		
 	}
 	

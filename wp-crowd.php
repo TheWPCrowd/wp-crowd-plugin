@@ -14,6 +14,8 @@
 require 'includes/wp-crowd-cpts.php';
 require 'includes/wp-crowd-metaboxes.php';
 require 'includes/wp-crowd-ppl-widget.php';
+
+require 'includes/wp-crowd-acf.php';
  
 class wp_crowd_plugin {
 	
