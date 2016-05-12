@@ -41,6 +41,7 @@ class wp_crowd_cpts {
 			'has_archive'        => true,
 			'hierarchical'       => false,
 			'menu_position'      => null,
+			'show_in_rest'       => true,
 			'supports'           => array( 'title', 'editor', 'author', 'excerpt', 'comments', 'thumbnail', 'publicize' )
 		);
 	
