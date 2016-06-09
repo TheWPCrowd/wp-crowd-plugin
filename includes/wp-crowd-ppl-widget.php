@@ -29,18 +29,39 @@
 		}
 		
 		public function widget( $args, $instance ) {
-
+			global $wpdb;
 			echo $args['before_widget'];
-			$people = get_terms( 'people', array( 'orderby' => 'count', 'order' => 'DESC' ) );
+			$min_posts = 1;
+			$author_ids = $wpdb->get_col("SELECT `post_author` FROM
+	    (SELECT `post_author`, COUNT(*) AS `count` FROM {$wpdb->posts}
+	        WHERE `post_status`='publish' GROUP BY `post_author`) AS `stats`
+	    WHERE `count` >= {$min_posts} ORDER BY `count` DESC;");
+
+			$people_terms = get_terms( 'people' );
+			$podcasters = array();
+			if( !empty( $people_terms ) ) {
+				foreach( $people_terms as $person ) {
+					$associated_user = get_field( 'associated_user', $person->taxonomy . '_' . $person->term_id );
+					if( $associated_user ) {
+						$podcasters[] = $associated_user['ID'];
+					}
+				}
+			}
+			$author_ids = array_merge( $author_ids, $podcasters );
+			$author_ids = array_unique( $author_ids );
 
 			echo $args['before_title'] . apply_filters( 'widget_title', 'Crowd Members' ). $args['after_title'];
 
-			echo '<ul>';
-			foreach( $people as $person ) {
-				if( $person->count < 5 ) {
-					continue;
+			echo '<ul class="crowd-members-widget">';
+			foreach( $author_ids as $author ) {
+				if( $author == 1 ) { continue; }
+				$user = get_user_by( 'id', $author );
+				$usermeta = get_user_meta( $user->ID );
+				$author_name = $user->user_nicename;
+				if( $usermeta['first_name'][0] && $usermeta['last_name'][0] ) {
+					$author_name = $usermeta['first_name'][0] . ' ' . $usermeta['last_name'][0];
 				}
-				echo '<li><a href="/people/' . $person->slug . '">' . $person->name . '</a></li>';
+				echo '<li><a href="' . get_author_posts_url( $user->ID ) . '">' . get_avatar( $user->ID, 300, '', 'The WP Crowd', array( 'class' => 'img-responsive' ) ) . ' ' . $author_name . '</a></li>';
 				
 			}
 			echo '</ul>';

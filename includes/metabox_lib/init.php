@@ -99,7 +99,9 @@ if ( ! class_exists( 'cmb2_bootstrap_205', false ) ) {
 				$this->l10ni18n();
 
 				// Include helper functions
-				require_once 'includes/helper-functions.php';
+				if( !function_exists( 'cmb2_dir' ) ){
+					require_once 'includes/helper-functions.php';
+				}
 				// Now kick off the class autoloader
 				spl_autoload_register( 'cmb2_autoload_classes' );
 				// Kick the whole thing off
