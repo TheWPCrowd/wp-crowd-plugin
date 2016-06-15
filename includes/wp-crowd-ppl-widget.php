@@ -152,7 +152,7 @@
 
 			echo $args['before_widget'];
 
-			echo $args['before_title'] . apply_filters( 'widget_title', 'Join Other WordPress Fanatics!' ) . $args['after_title'];
+			echo $args['before_title'] . apply_filters( 'widget_title', 'Join Other WordPress Fanatics' ) . $args['after_title'];
 			include( get_template_directory().'/partials/mailchimp-form.php' );
 			echo $args['after_widget'];
 
