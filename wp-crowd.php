@@ -39,7 +39,7 @@ class wp_crowd_plugin {
 	}
 
 	function ng_chatroom_die( $atts ) {
-		return 'We no longer support live chat, sorry.'
+		return 'We no longer support live chat, sorry.';
 	}
 }
  
