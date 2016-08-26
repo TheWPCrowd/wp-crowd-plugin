@@ -34,8 +34,13 @@ class wp_crowd_plugin {
 		/** WP Crowd People Widget **/
 		$wpcrowd_ppl_widget = new wp_crowd_ppl_widget_register();
 		$wpcrowd_ppl_widget->__init();
+
+		add_shortcode( 'ng-chatroom', array( $this, 'ng_chatroom_die' ) );
+	}
+
+	function ng_chatroom_die( $atts ) {
+		return 'We no longer support live chat, sorry.'
 	}
 }
  
 new wp_crowd_plugin();
- ?>
