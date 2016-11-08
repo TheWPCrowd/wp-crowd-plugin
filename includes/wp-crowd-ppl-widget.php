@@ -56,6 +56,7 @@
 			foreach( $author_ids as $author ) {
 				if( $author == 1 ) { continue; }
 				$user = get_user_by( 'id', $author );
+				if( !$user->user_nicename ) { continue; }
 				$usermeta = get_user_meta( $user->ID );
 				$author_name = $user->user_nicename;
 				if( $usermeta['first_name'][0] && $usermeta['last_name'][0] ) {
