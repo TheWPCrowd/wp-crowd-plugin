@@ -49,18 +49,18 @@ class wp_crowd_cpts {
 		
 		
 		$labels = array(
-			'name'               => _x( 'Cast', 'post type general name', 'thewpcrowd' ),
-			'singular_name'      => _x( 'Cast', 'post type singular name', 'thewpcrowd' ),
-			'menu_name'          => _x( 'Cast', 'admin menu', 'thewpcrowd' ),
-			'name_admin_bar'     => _x( 'Cast', 'add new on admin bar', 'thewpcrowd' ),
-			'add_new'            => _x( 'New Cast Member', 'portfolio', 'thewpcrowd' ),
-			'add_new_item'       => __( 'New Cast member', 'thewpcrowd' ),
-			'new_item'           => __( 'New Cast', 'thewpcrowd' ),
-			'edit_item'          => __( 'Edit Cast Member', 'thewpcrowd' ),
-			'view_item'          => __( 'View Cast Member', 'thewpcrowd' ),
-			'all_items'          => __( 'Whole Cast', 'thewpcrowd' ),
-			'search_items'       => __( 'Search Cast', 'thewpcrowd' ),
-			'parent_item_colon'  => __( 'Parent Cast:', 'thewpcrowd' ),
+			'name'               => _x( 'wplife', 'post type general name', 'thewpcrowd' ),
+			'singular_name'      => _x( 'wplife', 'post type singular name', 'thewpcrowd' ),
+			'menu_name'          => _x( 'WPlife', 'admin menu', 'thewpcrowd' ),
+			'name_admin_bar'     => _x( 'wplife', 'add new on admin bar', 'thewpcrowd' ),
+			'add_new'            => _x( 'New WPlife', 'portfolio', 'thewpcrowd' ),
+			'add_new_item'       => __( 'New wplife', 'thewpcrowd' ),
+			'new_item'           => __( 'New wplife', 'thewpcrowd' ),
+			'edit_item'          => __( 'Edit wplife Member', 'thewpcrowd' ),
+			'view_item'          => __( 'View wplife Member', 'thewpcrowd' ),
+			'all_items'          => __( 'Whole wplife', 'thewpcrowd' ),
+			'search_items'       => __( 'Search wplife', 'thewpcrowd' ),
+			'parent_item_colon'  => __( 'Parent wplife:', 'thewpcrowd' ),
 			'not_found'          => __( 'No members items found.', 'thewpcrowd' ),
 			'not_found_in_trash' => __( 'No members items found in Trash.', 'thewpcrowd' )
 		);
@@ -72,7 +72,7 @@ class wp_crowd_cpts {
 			'show_ui'            => true,
 			'show_in_menu'       => true,
 			'query_var'          => true,
-			'rewrite'            => array( 'slug' => 'cast' ),
+			'rewrite'            => array( 'slug' => 'wplife' ),
 			'capability_type'    => 'page',
 			'has_archive'        => true,
 			'hierarchical'       => false,
@@ -80,7 +80,7 @@ class wp_crowd_cpts {
 			'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' )
 		);
 	
-		//register_post_type( 'cast', $args );
+		register_post_type( 'wplife', $args );
 		
 	}
 	
