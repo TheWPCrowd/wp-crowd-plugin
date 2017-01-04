@@ -132,7 +132,7 @@ class wp_crowd_cpts {
 			'rewrite'           => array( 'slug' => 'people' ),
 		);
 	
-		register_taxonomy( 'people', array( 'podcast' ), $args );
+		register_taxonomy( 'people', array( 'podcast', 'wplife' ), $args );
 		
 		// GUESTS
 		
@@ -153,7 +153,7 @@ class wp_crowd_cpts {
 			'rewrite'           => array( 'slug' => 'guest' ),
 		);
 	
-		register_taxonomy( 'guest', array( 'podcast' ), $args );
+		register_taxonomy( 'guest', array( 'podcast', 'wplife' ), $args );
 		
 	}
 }	
