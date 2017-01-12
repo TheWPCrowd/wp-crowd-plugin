@@ -130,19 +130,17 @@
 			endwhile; endif; wp_reset_query();
 
 			if( $wplife->have_posts() ) : while( $wplife->have_posts() ) : $wplife->the_post();
-				if( has_post_thumbnail( $post->ID ) ) {
-					echo $args['before_widget'];
+				echo $args['before_widget'];
 
-					echo $args['before_title'] . apply_filters( 'widget_title', 'Latest #WPLife' ) . $args['after_title'];
+				echo $args['before_title'] . apply_filters( 'widget_title', 'Latest #WPLife' ) . $args['after_title'];
 
-					echo '<article class="latest-widget podcast">';
-					echo '<a href="' . get_the_permalink() . '">';
-					echo '<img src="/content/uploads/2017/01/logo.jpg" alt="The WordPress Life WPLife" class="img-responsive" />';
-					echo '</a>';
-					echo '</article>';
+				echo '<article class="latest-widget podcast">';
+				echo '<a href="' . get_the_permalink() . '">';
+				echo '<img src="/content/uploads/2017/01/logo.jpg" alt="The WordPress Life WPLife" class="img-responsive" />';
+				echo '</a>';
+				echo '</article>';
 
-					echo $args['after_widget'];
-				}
+				echo $args['after_widget'];
 
 			endwhile; endif; wp_reset_query();
 
