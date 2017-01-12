@@ -133,7 +133,7 @@
 				if( has_post_thumbnail( $post->ID ) ) {
 					echo $args['before_widget'];
 
-					echo $args['before_title'] . apply_filters( 'widget_title', 'Latest Blog Post' ) . $args['after_title'];
+					echo $args['before_title'] . apply_filters( 'widget_title', 'Latest #WPLife' ) . $args['after_title'];
 
 					echo '<article class="latest-widget podcast">';
 					echo '<a href="' . get_the_permalink() . '">';
