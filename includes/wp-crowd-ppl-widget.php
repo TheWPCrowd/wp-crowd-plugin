@@ -94,6 +94,7 @@
 
 			$podcast = new WP_Query( array( 'post_type' => 'podcast', 'posts_per_page' => 1 ) );
 			$blog    = new WP_Query( array( 'post_type' => 'post', 'posts_per_page' => 1 ) );
+			$wplife  = new WP_Query( array( 'post_type' => 'wplife', 'posts_per_page' => 1 ) );
 
 			if( $podcast->have_posts() ) : while( $podcast->have_posts() ) : $podcast->the_post();
 				if( has_post_thumbnail( $post->ID ) ) {
@@ -120,6 +121,23 @@
 					echo '<article class="latest-widget podcast">';
 					echo '<a href="' . get_the_permalink() . '">';
 					echo '<img src="' . get_the_post_thumbnail_url( $post->ID, 'full' ) . '" alt="The WP Crowd Podcast" class="img-responsive" />';
+					echo '</a>';
+					echo '</article>';
+
+					echo $args['after_widget'];
+				}
+
+			endwhile; endif; wp_reset_query();
+
+			if( $wplife->have_posts() ) : while( $wplife->have_posts() ) : $wplife->the_post();
+				if( has_post_thumbnail( $post->ID ) ) {
+					echo $args['before_widget'];
+
+					echo $args['before_title'] . apply_filters( 'widget_title', 'Latest Blog Post' ) . $args['after_title'];
+
+					echo '<article class="latest-widget podcast">';
+					echo '<a href="' . get_the_permalink() . '">';
+					echo '<img src="/content/uploads/2017/01/logo.jpg" alt="The WordPress Life WPLife" class="img-responsive" />';
 					echo '</a>';
 					echo '</article>';
 
