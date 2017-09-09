@@ -178,6 +178,27 @@ if( function_exists('acf_add_local_field_group') ):
                 'readonly' => 0,
                 'disabled' => 0,
             ),
+            array (
+                'key' => 'showcase_website',
+                'label' => 'Showcase Website',
+                'name' => 'showcase_website_url',
+                'type' => 'text',
+                'instructions' => '',
+                'required' => 1,
+                'conditional_logic' => 0,
+                'wrapper' => array (
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'default_value' => '',
+                'placeholder' => ' ',
+                'prepend' => '',
+                'append' => '',
+                'maxlength' => '',
+                'readonly' => 0,
+                'disabled' => 0,
+            ),
         ),
         'location' => array (
             array (
