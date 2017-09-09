@@ -81,6 +81,41 @@ class wp_crowd_cpts {
 		);
 	
 		register_post_type( 'wplife', $args );
+
+        $labels = array(
+            'name'               => _x( 'Showcase', 'post type general name', 'thewpcrowd' ),
+            'singular_name'      => _x( 'Showcase', 'post type singular name', 'thewpcrowd' ),
+            'menu_name'          => _x( 'Showcase', 'admin menu', 'thewpcrowd' ),
+            'name_admin_bar'     => _x( 'Showcase', 'add new on admin bar', 'thewpcrowd' ),
+            'add_new'            => _x( 'New Showcase', 'showcase', 'thewpcrowd' ),
+            'add_new_item'       => __( 'New Showcase', 'thewpcrowd' ),
+            'new_item'           => __( 'New Showcase', 'thewpcrowd' ),
+            'edit_item'          => __( 'Edit Showcase', 'thewpcrowd' ),
+            'view_item'          => __( 'View Showcase', 'thewpcrowd' ),
+            'all_items'          => __( 'All Showcase', 'thewpcrowd' ),
+            'search_items'       => __( 'Search Showcase', 'thewpcrowd' ),
+            'parent_item_colon'  => __( 'Parent Showcase:', 'thewpcrowd' ),
+            'not_found'          => __( 'No items items found.', 'thewpcrowd' ),
+            'not_found_in_trash' => __( 'No items items found in Trash.', 'thewpcrowd' )
+        );
+
+        $args = array(
+            'labels'             => $labels,
+            'public'             => true,
+            'publicly_queryable' => true,
+            'show_ui'            => true,
+            'show_in_menu'       => true,
+            'query_var'          => true,
+            'rewrite'            => array( 'slug' => 'showcase' ),
+            'capability_type'    => 'page',
+            'has_archive'        => true,
+            'hierarchical'       => false,
+            'menu_position'      => null,
+            'show_in_rest'       => true,
+            'supports'           => array( 'title', 'editor', 'author', 'excerpt', 'comments', 'thumbnail', 'publicize' )
+        );
+
+        register_post_type( 'showcase', $args );
 		
 	}
 	
@@ -131,8 +166,8 @@ class wp_crowd_cpts {
 			'query_var'         => true,
 			'rewrite'           => array( 'slug' => 'people' ),
 		);
-	
-		register_taxonomy( 'people', array( 'podcast', 'wplife' ), $args );
+
+		register_taxonomy( 'people', array( 'podcast', 'wplife', 'showcase' ), $args );
 		
 		// GUESTS
 		

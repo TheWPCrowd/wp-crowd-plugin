@@ -151,6 +151,52 @@ if( function_exists('acf_add_local_field_group') ):
 		'active' => 1,
 		'description' => '',
 	));
+
+    // Showcase Fields
+    acf_add_local_field_group(array (
+        'key' => 'group_showcase',
+        'title' => 'Showcase Info',
+        'fields' => array (
+            array (
+                'key' => 'showcase_video_id',
+                'label' => 'Youtube Video',
+                'name' => 'youtube_video_id',
+                'type' => 'text',
+                'instructions' => '',
+                'required' => 1,
+                'conditional_logic' => 0,
+                'wrapper' => array (
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'default_value' => '',
+                'placeholder' => 'Youtube ID',
+                'prepend' => '',
+                'append' => '',
+                'maxlength' => '',
+                'readonly' => 0,
+                'disabled' => 0,
+            ),
+        ),
+        'location' => array (
+            array (
+                array (
+                    'param' => 'post_type',
+                    'operator' => '==',
+                    'value' => 'showcase',
+                ),
+            ),
+        ),
+        'menu_order' => 0,
+        'position' => 'normal',
+        'style' => 'default',
+        'label_placement' => 'top',
+        'instruction_placement' => 'label',
+        'hide_on_screen' => '',
+        'active' => 1,
+        'description' => '',
+    ));
 	
 endif;
 ?>
